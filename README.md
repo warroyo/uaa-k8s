@@ -17,7 +17,7 @@ uaac user add dev1 -p '<secret>' --emails 'dev1@localhost.com'
 #create as many as you want here
 ```
 
-1. create a clusterrole and binding for the developers. the file below is a default for a developer setting you can modify the `resources` as needed. also update the `subjects` for all of your users. 
+4. create a clusterrole and binding for the developers. the file below is a default for a developer setting you can modify the `resources` as needed. also update the `subjects` for all of your users. 
 
 ```
 kubectl apply -f rbac.yml
