@@ -1,0 +1,24 @@
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: k8s-developer
+rules:
+- apiGroups: [""]
+  resources: ["deployments","configmaps","pods","secrets","ingresses","namespaces"]
+  verbs: ["create","get","delete","list","update","edit","watch","exec","patch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: k8s-developer
+roleRef:
+  kind: ClusterRole
+  name: k8s-developer
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+- kind: User
+  name: dev1
+  apiGroup: rbac.authorization.k8s.io
+- kind: User
+  name: dev2
+  apiGroup: rbac.authorization.k8s.io
